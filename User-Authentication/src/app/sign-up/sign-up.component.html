@@ -1,0 +1,85 @@
+<div
+  class="row text-center container-fluid justify-content-center align-item-center"
+>
+  <div class="col-6">
+    <h1 class="text-primary mt-4" style="font-size: 30px">
+      <i class="fa-solid fa-user"></i> &ensp;CREATE YOUR ACCOUNT
+    </h1>
+    <div>
+      <form
+        action=""
+        class="bg"
+        [formGroup]="userForm"
+        (ngSubmit)="getUser()"
+      >
+        <div class="input-box mt-4 text-start justify-content-center">
+          <mat-form-field class="example-full-width">
+            <mat-label>UserName</mat-label>
+            <input
+              matInput
+              placeholder="Enter user name"
+              formControlName="userName"
+            />
+          </mat-form-field>
+          <mat-error
+            *ngIf="
+              userForm.dirty && userForm.get('userName')?.hasError('required')
+            "
+            >please enter the userName</mat-error
+          >
+        </div>
+
+        <div class="input-box text-start mt-2">
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              placeholder="enter password"
+              formControlName="Password"
+            />
+          </mat-form-field>
+          <mat-error *ngIf="userForm.get('Password')?.hasError('minlength')"
+            >password shoul be in maximum 5 characters</mat-error
+          >
+        </div>
+
+        <div class="input-box text-start mt-2">
+          <mat-form-field class="example-full-width">
+            <mat-label>Confrim Password</mat-label>
+            <input
+              matInput
+              type="password"
+              placeholder="enter password again"
+              formControlName="confirmPassword"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="input-box text-start mt-2">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              placeholder="enter email"
+              formControlName="email"
+            />
+          </mat-form-field>
+          <mat-error *ngIf="userForm.get('email')?.hasError('email')"
+            >Enter valid email address</mat-error
+          >
+        </div>
+
+        <div class="input-box mt-2">
+          <button class="btn btn-primary">Create Account</button>
+        </div>
+
+        <div class="mt-2">
+          <br />
+          <p>Already have an Account ? <a href="">LOGIN ACCOUNT</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div
+  class="row  text-center container-fluid justify-content-center align-item-center"
+>
+  <div class="col-6 p-5">
+    <h1 class="text-primary" style="font-size: 30px">
+      <i class="fa-solid fa-user"></i> &ensp;LOGIN YOUR ACCOUNT
+    </h1>
+
+    <div>
+      <form
+        action=""
+        class="bg p-2 mt-2"
+        [formGroup]="userForm"
+        (ngSubmit)="getUser()"
+      >
+        <div class="input-box mt-5 text-start justify-content-center">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Enter user email"
+              formControlName="email"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="input-box text-start mt-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              placeholder="enter password"
+              formControlName="Password"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="input-box mt-3">
+          <button class="btn btn-primary">Login</button>
+        </div>
+
+        <mat-error class="pt-3 h6" *ngIf="getError$">{{
+          getError$ | async
+        }}</mat-error>
+
+        <div class="mt-2 mb-2">
+          <br />
+          <p>
+            Dont have an Account ? <a routerLink="/signup">CREATE ACCOUNT</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
